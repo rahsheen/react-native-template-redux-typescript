@@ -25,6 +25,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { Counter } from './features/counter/Counter'
 
 declare const global: {HermesInternal: null | {}};
 
@@ -43,6 +44,7 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
+            <Counter />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
