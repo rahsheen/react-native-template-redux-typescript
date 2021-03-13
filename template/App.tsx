@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  *
  * Generated with the TypeScript template
- * https://github.com/rahsheen/react-native-template-redux-typescript
+ * https://github.com/react-native-community/react-native-template-typescript
  *
  * @format
  */
@@ -19,13 +19,13 @@ import {
 } from 'react-native';
 
 import {
-  Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import LearnReduxLinks from './src/components/LearnReduxLinks';
+import Header from './src/components/Header';
 import {Counter} from './src/features/counter/Counter';
 
 declare const global: {HermesInternal: null | {}};
@@ -38,6 +38,7 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
+          <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
