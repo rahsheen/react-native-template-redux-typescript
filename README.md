@@ -18,7 +18,7 @@
 
 - Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
 - Consistent with the default React Native template
-- Redux Toolkit already configured
+- Redux Toolkit already configured per [ Redux Toolkit Getting Started ]( https://redux-toolkit.js.org/tutorials/quick-start )
 - Minimal additional dependencies
 
 ## :arrow_forward: Usage
