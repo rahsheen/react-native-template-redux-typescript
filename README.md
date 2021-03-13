@@ -1,9 +1,6 @@
 # :space_invader: React Native Template Redux TypeScript
 
 <p>
-  <a href="https://travis-ci.org/rahsheen/react-native-template-redux-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/rahsheen/react-native-template-redux-typescript.svg" target="_blank" />
-  </a>
   <a href="https://github.com/rahsheen/react-native-template-redux-typescript#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
