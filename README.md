@@ -1,16 +1,16 @@
 # :space_invader: React Native Template Redux TypeScript
 
 <p>
-  <a href="https://travis-ci.org/react-native-community/react-native-template-redux-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/react-native-community/react-native-template-redux-typescript.svg" target="_blank" />
+  <a href="https://travis-ci.org/rahsheen/react-native-template-redux-typescript">
+    <img alt="Build Status" src="https://img.shields.io/travis/rahsheen/react-native-template-redux-typescript.svg" target="_blank" />
   </a>
-  <a href="https://github.com/react-native-community/react-native-template-redux-typescript#readme">
+  <a href="https://github.com/rahsheen/react-native-template-redux-typescript#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
-  <a href="https://github.com/react-native-community/react-native-template-redux-typescript/graphs/commit-activity">
+  <a href="https://github.com/rahsheen/react-native-template-redux-typescript/graphs/commit-activity">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
-  <a href="https://github.com/react-native-community/react-native-template-redux-typescript/blob/master/LICENSE">
+  <a href="https://github.com/rahsheen/react-native-template-redux-typescript/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
   </a>
 </p>
