@@ -1,7 +1,7 @@
 {
   "name": "react-native-template-redux-typescript",
   "version": "0.0.1",
-  "description": "Clean and minimalist React Native template for a quick start with TypeScript.",
+  "description": "Clean and minimalist React Native template for a quick start with Redux and TypeScript.",
   "scripts": {
     "test": "exit 0",
     "prepublishOnly": "npm --no-git-tag-version version $TRAVIS_TAG"
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emin93/react-native-template-redux-typescript.git"
+    "url": "git+https://github.com/rahsheen/react-native-template-redux-typescript.git"
   },
   "keywords": [
     "react-native",
@@ -21,10 +21,10 @@
     "template",
     "boilerplate"
   ],
-  "author": "Emin Khateeb <emin@emin.ch>",
+  "author": "Rahsheen Porter <info@rah.codes>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/emin93/react-native-template-redux-typescript/issues"
+    "url": "https://github.com/rahsheen/react-native-template-redux-typescript/issues"
   },
-  "homepage": "https://github.com/emin93/react-native-template-redux-typescript#readme"
+  "homepage": "https://github.com/rahsheen/react-native-template-redux-typescript#readme"
 }

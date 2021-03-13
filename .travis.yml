@@ -5,6 +5,6 @@ deploy:
   on:
     tags: true
   provider: npm
-  email: 'emin@emin.ch'
+  email: 'info@rah.codes'
   api_key: '${NPM_TOKEN}'
   skip_cleanup: true
