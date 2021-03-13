@@ -1,4 +1,4 @@
-# :space_invader: React Native Template TypeScript
+# :space_invader: React Native Template Redux TypeScript
 
 <p>
   <a href="https://travis-ci.org/react-native-community/react-native-template-redux-typescript">
@@ -15,12 +15,13 @@
   </a>
 </p>
 
-> Clean and minimalist React Native template for a quick start with TypeScript.
+> Clean and minimalist React Native template for a quick start with Redux and TypeScript.
 
 ## :star: Features
 
 - Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
 - Consistent with the default React Native template
+- Redux Toolkit already configured
 - Minimal additional dependencies
 
 ## :arrow_forward: Usage
