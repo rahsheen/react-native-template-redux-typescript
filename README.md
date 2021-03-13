@@ -1,4 +1,4 @@
-# :space_invader: React Native Template Redux TypeScript
+# React Native Template Redux TypeScript
 
 <p>
   <a href="https://github.com/rahsheen/react-native-template-redux-typescript#readme">
