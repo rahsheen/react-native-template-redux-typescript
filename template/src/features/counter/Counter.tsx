@@ -1,12 +1,4 @@
 import React, {useState} from 'react';
-import {useAppSelector, useAppDispatch} from '../../app/hooks';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  selectCount,
-} from './counterSlice';
 import {
   StyleSheet,
   Text,
@@ -14,27 +6,35 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useAppDispatch, useAppSelector} from '../../app/hooks';
+import {AsyncButton} from '../../components/AsyncButton';
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  incrementByAmount,
+  selectCount,
+} from './counterSlice';
 
 export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState('2');
 
   // The `state` arg is correctly typed as `RootState` already
   const count = useAppSelector(selectCount);
+  const status = useAppSelector((state) => state.counter.status);
   const dispatch = useAppDispatch();
 
   return (
     <View>
       <View style={styles.row}>
         <TouchableOpacity
-          style={{...styles.button, ...styles.smallButton}}
-          aria-label="Increment value"
+          style={styles.button}
           onPress={() => dispatch(increment())}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
         <Text style={styles.value}>{count}</Text>
         <TouchableOpacity
-          style={{...styles.button, ...styles.smallButton}}
-          aria-label="Decrement value"
+          style={styles.button}
           onPress={() => dispatch(decrement())}>
           <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
@@ -42,12 +42,11 @@ export function Counter() {
       <View style={styles.row}>
         <TextInput
           style={styles.textbox}
-          aria-label="Set increment amount"
           value={incrementAmount}
           keyboardType="numeric"
           onChangeText={setIncrementAmount}
         />
-        <View style={styles.column}>
+        <View>
           <TouchableOpacity
             style={styles.button}
             onPress={() =>
@@ -55,13 +54,14 @@ export function Counter() {
             }>
             <Text style={styles.buttonText}>Add Amount</Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <AsyncButton
             style={styles.button}
+            disabled={status !== 'idle'}
             onPress={() =>
               dispatch(incrementAsync(Number(incrementAmount) || 0))
             }>
             <Text style={styles.buttonText}>Add Async</Text>
-          </TouchableOpacity>
+          </AsyncButton>
         </View>
       </View>
     </View>
@@ -71,13 +71,14 @@ export function Counter() {
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    padding: 24,
-    backgroundColor: '#eaeaea',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
-  column: {
-    justifyContent: 'space-between',
+  value: {
+    fontSize: 78,
+    paddingHorizontal: 16,
+    marginTop: 2,
   },
   button: {
     backgroundColor: 'rgba(112, 76, 182, 0.1)',
@@ -87,19 +88,10 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     margin: 2,
   },
-  smallButton: {
-    width: 48,
-    height: 48,
-  },
   buttonText: {
     color: 'rgb(112, 76, 182)',
     fontSize: 32,
     textAlign: 'center',
-  },
-  value: {
-    fontSize: 78,
-    marginTop: 2,
-    fontFamily: 'Courier New',
   },
   textbox: {
     fontSize: 48,

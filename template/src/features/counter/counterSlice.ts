@@ -1,13 +1,34 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {AppThunk, RootState} from '../../app/store';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from '../../app/store';
 
 interface CounterState {
   value: number;
+  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: CounterState = {
   value: 0,
+  status: 'idle',
 };
+
+// The function below is called a thunk and allows us to perform async logic. It
+// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
+// will call the thunk with the `dispatch` function as the first argument. Async
+// code can then be executed and other actions can be dispatched
+export const incrementAsync = createAsyncThunk(
+  'counter/fetchCount',
+  async (amount: number, {dispatch}) => {
+    // We are faking it a bit here by `await`ing a Promise and using a `setTimeout`.
+    // Usually, you would do something more like:
+    // ```
+    // const response = await userAPI.fetchById(userId)
+    // return response.data
+    // ```
+    await new Promise((resolve) =>
+      setTimeout(() => resolve(dispatch(incrementByAmount(amount))), 1000),
+    );
+  },
+);
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -28,19 +49,18 @@ export const counterSlice = createSlice({
       state.value += action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(incrementAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(incrementAsync.fulfilled, (state) => {
+        state.status = 'idle';
+      });
+  },
 });
 
 export const {increment, decrement, incrementByAmount} = counterSlice.actions;
-
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-export const incrementAsync = (amount: number): AppThunk => (dispatch) => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
-};
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

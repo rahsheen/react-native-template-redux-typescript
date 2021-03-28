@@ -4,54 +4,36 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * @flow
  * @format
  */
 
 'use strict';
 
 import React from 'react';
-import {Text, StyleSheet, ImageBackground} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Animated, StyleSheet, View} from 'react-native';
+import {useViewportUnits, useBounceAnimation} from '../app/hooks';
 
-const Header = () => (
-  <>
-    <ImageBackground
-      accessibilityRole={'image'}
-      source={require('./logo.gif')}
-      style={styles.background}
-      imageStyle={styles.logo}>
-      <Text style={styles.text}>Welcome to React + Redux</Text>
-    </ImageBackground>
-  </>
-);
+const Header = () => {
+  const {vh} = useViewportUnits();
+  const bounce = useBounceAnimation();
+  const height = 40 * vh;
+
+  return (
+    <View style={styles.container}>
+      <Animated.Image
+        accessibilityRole={'image'}
+        source={require('./logo.gif')}
+        style={{height, transform: [{translateY: bounce}]}}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  background: {
-    paddingBottom: 40,
-    paddingTop: 96,
-    paddingHorizontal: 32,
-    backgroundColor: Colors.lighter,
-  },
-  logo: {
-    opacity: 0.2,
-    overflow: 'visible',
-    resizeMode: 'cover',
-    /*
-     * These negative margins allow the image to be offset similarly across screen sizes and component sizes.
-     *
-     * The source logo.png image is 512x512px, so as such, these margins attempt to be relative to the
-     * source image's size.
-     */
-    marginLeft: -64,
-    marginBottom: -128,
-  },
-  text: {
-    fontSize: 40,
-    fontWeight: '600',
-    textAlign: 'center',
-    color: Colors.black,
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
 });
-
 export default Header;
