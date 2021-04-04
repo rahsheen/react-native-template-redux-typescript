@@ -25,21 +25,18 @@ export function AsyncButton({
     onPress?.(e);
 
     // TODO: Maybe change to Animated.sequence
-    Animated.timing(progress, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start(({finished}) => {
-      if (!finished) {
-        return;
-      }
-
+    Animated.sequence([
+      Animated.timing(progress, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: false,
+      }),
       Animated.timing(opacity, {
         toValue: 0,
         duration: 200,
         useNativeDriver: false,
-      }).start();
-    });
+      })
+    ]).start();
   };
 
   const progressInterpolate = progress.interpolate({
