@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../../app/store';
+import {fetchCount} from './counterAPI';
 
 interface CounterState {
   value: number;
@@ -15,20 +16,15 @@ const initialState: CounterState = {
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
-export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
-  async (amount: number, {dispatch}) => {
-    // We are faking it a bit here by `await`ing a Promise and using a `setTimeout`.
-    // Usually, you would do something more like:
-    // ```
-    // const response = await userAPI.fetchById(userId)
-    // return response.data
-    // ```
-    await new Promise((resolve) =>
-      setTimeout(() => resolve(dispatch(incrementByAmount(amount))), 1000),
-    );
-  },
-);
+export const incrementAsync = createAsyncThunk<
+  number,
+  number,
+  {state: {counter: CounterState}}
+>('counter/fetchCount', async (amount: number, {getState}) => {
+  const {value} = getState().counter;
+  const response = await fetchCount(value, amount);
+  return response.data;
+});
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -54,8 +50,9 @@ export const counterSlice = createSlice({
       .addCase(incrementAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(incrementAsync.fulfilled, (state) => {
+      .addCase(incrementAsync.fulfilled, (state, action) => {
         state.status = 'idle';
+        state.value = action.payload;
       });
   },
 });
