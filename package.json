@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "Clean and minimalist React Native template for a quick start with Redux and TypeScript.",
   "scripts": {
-    "test": "exit 0",
-    "prepublishOnly": "npm --no-git-tag-version version $TRAVIS_TAG",
-    "build": "babel --extensions '.ts,.tsx' template/App.tsx template/src -d dist"
+    "test": "exit 0"
   },
   "files": [
     "template",
@@ -28,10 +26,4 @@
     "url": "https://github.com/rahsheen/react-native-template-redux-typescript/issues"
   },
   "homepage": "https://github.com/rahsheen/react-native-template-redux-typescript#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.13.14",
-    "@babel/core": "^7.13.14",
-    "@babel/preset-typescript": "^7.13.0",
-    "prettier": "^2.2.1"
-  }
 }
