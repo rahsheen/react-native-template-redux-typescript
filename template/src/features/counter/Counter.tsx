@@ -21,7 +21,7 @@ export function Counter() {
 
   // The `state` arg is correctly typed as `RootState` already
   const count = useAppSelector(selectCount);
-  const status = useAppSelector((state) => state.counter.status);
+  const status = useAppSelector(state => state.counter.status);
   const dispatch = useAppDispatch();
 
   return (
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 78,
     paddingHorizontal: 16,
     marginTop: 2,
+    color: 'rgb(112, 76, 182)',
   },
   button: {
     backgroundColor: 'rgba(112, 76, 182, 0.1)',
@@ -101,5 +102,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderWidth: 1,
     justifyContent: 'center',
+    color: 'rgb(112, 76, 182)',
   },
 });

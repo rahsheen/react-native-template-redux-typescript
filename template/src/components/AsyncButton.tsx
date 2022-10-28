@@ -35,7 +35,7 @@ export function AsyncButton({
         toValue: 0,
         duration: 200,
         useNativeDriver: false,
-      })
+      }),
     ]).start();
   };
 
@@ -52,10 +52,12 @@ export function AsyncButton({
 
   return (
     <Pressable style={style} onPress={_onPress} {...restProps}>
-      <View style={StyleSheet.absoluteFill}>
-        <Animated.View style={[styles.progress, progressStyle]} />
-      </View>
-      {children}
+      <>
+        <View style={StyleSheet.absoluteFill}>
+          <Animated.View style={[styles.progress, progressStyle]} />
+        </View>
+        {children}
+      </>
     </Pressable>
   );
 }
