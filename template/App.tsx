@@ -26,9 +26,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import LearnReduxLinks from './src/components/LearnReduxLinks';
 import Header from './src/components/Header';
-import {Counter} from './src/features/counter/Counter';
+import { Counter } from './src/features/counter/Counter';
 
-declare const global: {HermesInternal: null | {}};
+declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
