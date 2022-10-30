@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import {
   Animated,
   GestureResponderEvent,
@@ -7,7 +7,11 @@ import {
   StyleSheet,
   View,
   ViewStyle,
+  LogBox,
 } from 'react-native';
+
+// Ignore warnings from built-in Animated components that hate StrictMode
+LogBox.ignoreLogs([/Animated/]);
 
 export function AsyncButton({
   onPress,
@@ -24,7 +28,6 @@ export function AsyncButton({
 
     onPress?.(e);
 
-    // TODO: Maybe change to Animated.sequence
     Animated.sequence([
       Animated.timing(progress, {
         toValue: 1,

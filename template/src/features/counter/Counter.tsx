@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useAppDispatch, useAppSelector} from '../../app/hooks';
-import {AsyncButton} from '../../components/AsyncButton';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { AsyncButton } from '../../components/AsyncButton';
 import {
   decrement,
   increment,
