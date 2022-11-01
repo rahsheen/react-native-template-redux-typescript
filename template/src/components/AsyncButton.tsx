@@ -28,7 +28,6 @@ export function AsyncButton({
 
     onPress?.(e);
 
-    // TODO: Maybe change to Animated.sequence
     Animated.sequence([
       Animated.timing(progress, {
         toValue: 1,
